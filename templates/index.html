@@ -1,91 +1,26 @@
 {% extends 'layout.html' %}
 
-{% block title %}My Movie Library{% endblock %}
+{% block title %}Home - My Movie Library{% endblock %}
 
 {% block content %}
-            <div class="movie-list-container">
-                <a href="pages/details-little-women.html" class="movie-card-link">
-                    <div class="movie-card">
-                        <img src="assets/images/littlewomen.jpg" alt="Movie Poster">
-                        <h3>Little Women</h3>
-                        <div class="rating">
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                        </div>
-                    </div>
-                </a>
+<div class="movie-list-container">
 
-                <a href="pages/details-mean-girls.html" class="movie-card-link">
-                    <div class="movie-card">
-                        <img src="assets/images/meangirls.jpeg" alt="Movie Poster">
-                        <h3>Mean Girls</h3>
-                        <div class="rating">
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span class="star-empty">★</span>
-                            <span class="star-empty">★</span>
-                        </div>
-                    </div>
-                </a>
+    {% for movie in movies %}
+    <a href="#" class="movie-card-link">
+        <div class="movie-card">
+            <img src="{{ movie.image_url }}" alt="Poster for {{ movie.title }}" />
+            <h3>{{ movie.title }}</h3>
+            <div class="rating">
+                {% for i in range(5) %}
+                    {% if (i + 1) <= (movie.stars|int) %}
+                        <span>★</span>
+                    {% else %}
+                        <span class="star-empty">★</span>
+                    {% endif %}
+                {% endfor %} </div>
+        </div>
+    </a>
+    {% endfor %}
+</div>
 
-                <a href="pages/details-dead-poets-society.html" class="movie-card-link">
-                    <div class="movie-card">
-                        <img src="assets/images/deadpoetssociety.jpeg" alt="Movie Poster">
-                        <h3>Dead Poets Society</h3>
-                        <div class="rating">
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span class="star-empty">★</span>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="pages/details-coraline.html" class="movie-card-link">
-                    <div class="movie-card">
-                        <img src="assets/images/coraline.jpeg" alt="Movie Poster">
-                        <h3>Coraline</h3>
-                        <div class="rating">
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="pages/details-society-of-snow.html" class="movie-card-link">
-                    <div class="movie-card">
-                        <img src="assets/images/societyofsnow.jpg" alt="Movie Poster">
-                        <h3>Society of the Snow</h3>
-                        <div class="rating">
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="pages/details-the-hunger-games.html" class="movie-card-link">
-                    <div class="movie-card">
-                        <img src="assets/images/thehungergames.jpeg" alt="Movie Poster">
-                        <h3>The Hunger Games</h3>
-                        <div class="rating">
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span class="star-empty">★</span>
-                            <span class="star-empty">★</span>
-                        </div>
-                    </div>
-                </a>
-
-        {% endblock %}
+{% endblock %}
