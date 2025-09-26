@@ -1,32 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'layout.html' %}
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>My Movie Library - Home</title>
-        <link rel="stylesheet" href ="css/style.css">
-    </head>
+{% block title %}My Movie Library{% endblock %}
 
-    <body>
-        <header>
-
-            <a href="index.html">
-                <div>
-                    <img src="assets/images/mlib-icon.svg" alt = "MLib Logo Icon" height="32">
-                    <span>MLib</span>
-                </div>
-            </a>
-
-            <nav>
-                <a href="pages/add-review.html">
-                    <button class="add-button" aria-label="Add new movie review">+</button>
-                </a>
-            </nav>
-
-        </header>
-
-        <main>
+{% block content %}
             <div class="movie-list-container">
                 <a href="pages/details-little-women.html" class="movie-card-link">
                     <div class="movie-card">
@@ -112,11 +88,4 @@
                     </div>
                 </a>
 
-        </main>
-
-        <footer>
-            <p>&copy; 2025 MLib &ndash; My Movie Library</p>
-        </footer>
-    </body>
-
-</html>
+        {% endblock %}
